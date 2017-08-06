@@ -35,7 +35,7 @@ myapp.controller('connectedController', function ($scope, $rootScope, $http, $wi
            
             // random generated list
          
-            for (var i = 1; i <= 8; i++) {
+            for (var i = 1; i < 8; i++) {
                 tmpList.push({
                     text: ' ',
                     value: i
@@ -81,35 +81,17 @@ myapp.controller('connectedController', function ($scope, $rootScope, $http, $wi
   //contains the data of left part
   $rootScope.leftArray = [];
   $rootScope.rightArray = tmpList;
-    //function to check and update levels
     var isSorted = function(){
 
        for(var i=0;i<tmpList.length;++i)
      {
-       if(i+1 !==$rootScope.leftArray[i].value)
-       return false
+       if($rootScope.leftArray.length!=tmpList.length)
+        return false;
+       if(i+1!==$rootScope.leftArray[i].value)
+       return false;
     }
-        
-        
-        return true
+   return true;
    }
-    //function to check whether the items arranged are correct or not
-  //  var wrongAttempt = function(){
-       // if($rootScope.leftArray.length === tmpList.length)
-         //   {
-              //  for(var i=0;i<tmpList.length;i++)
-                 //   {
-                 //       if(i+1 != $rootScope.leftArray[i].value)
-                  //      {
-                    //        console.log("not correct order")
-                       //     return true
-                         
-                    //    }
-                   // }
-             //   return false
-          //  }
-       // return false
-  //  }
   
     $scope.sortableOptions = {
 
@@ -122,7 +104,7 @@ myapp.controller('connectedController', function ($scope, $rootScope, $http, $wi
 	console.log($rootScope.rightArray);
     if(isSorted())
         {
-            if($scope.level === "1")
+            if($scope.level == "1")
            {$window.alert("you completed level 1!!");
             $scope.size = 10;
             updateFunc($scope.size)
@@ -131,29 +113,11 @@ myapp.controller('connectedController', function ($scope, $rootScope, $http, $wi
             $rootScope.leftArray = []
             $rootScope.rightArray=tmpList
            }
-           else if($scope.level ==="2")
-               { $window.alert("you have completed level 2!!")
-                 $scope.size = 12;
-                  updateFunc($scope.size)
-                  console.log(tmpList)
-                  $scope.level = "3"
-                  $rootScope.leftArray = []
-                  $rootScope.rightArray = tmpList
-               }
-           else if($scope.level === "3")
-               $window.alert("Congrats You have won the game!!")
+            else if($scope.level == "2")
+                $window.alert("congrats you have won the game")
         }
-        else if(!isSorted()){
-            
-         // if($rootScope.leftArray.length === tmpList.length)
-            //  $window.alert("wrong move try again")
-        }
-         //if(wrongAttempt())
-         // {$window.alert("sorry wrong move :( put the item back and try another one")
-            // console.log("wrongAttempt function called")
-        //  }
-        
-        
+        //if(!isSorted())
+          //  $window.alert("sorry wrong ")
      },
          
      connectWith: '.connectedItemsExample .list'

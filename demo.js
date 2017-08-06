@@ -86,12 +86,12 @@ myapp.controller('connectedController', function ($scope, $rootScope, $http, $wi
 
        for(var i=0;i<tmpList.length;++i)
      {
-       if(i+1 !== $rootScope.leftArray[i].value)
+       if(i+1 !==$rootScope.leftArray[i].value)
        return false
     }
         
         
-        return false
+        return true
    }
     //function to check whether the items arranged are correct or not
   //  var wrongAttempt = function(){
@@ -143,9 +143,10 @@ myapp.controller('connectedController', function ($scope, $rootScope, $http, $wi
            else if($scope.level === "3")
                $window.alert("Congrats You have won the game!!")
         }
-        else{
-           if($rootScope.rightArray.length === 0)
-               $window.alert("wrong order try again:(")
+        else if(!isSorted()){
+            
+         // if($rootScope.leftArray.length === tmpList.length)
+            //  $window.alert("wrong move try again")
         }
          //if(wrongAttempt())
          // {$window.alert("sorry wrong move :( put the item back and try another one")

@@ -1,6 +1,11 @@
 .ul {
     text-align: center;
 }
+.box{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
 .mylist {
     display: inline; 
     padding: 9px 12px 7px;

@@ -1,6 +1,1 @@
-# trends-game
-
-### A Game based on google search trends in india
-  
-  Order the tiles to win the game
-  
+Second verson of this game with a mutilevel feature
